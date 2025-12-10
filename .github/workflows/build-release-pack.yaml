@@ -1,17 +1,17 @@
-name: Build GitHub Releases ZIP
+name: Build Release Pack
 
 on:
   workflow_dispatch:
     inputs:
       package:
-        description: "Escolha o conjunto de repositórios"
+        description: "Escolha o pacote que deseja gerar o ZIP"
         required: true
-        default: "default"
+        default: "Instalacao_completa"
         type: choice
         options:
-          - default
-          - backend
-          - analytics
+          - Instalacao_completa
+          - Mensageria
+          - Outbound
 
 jobs:
   build:
@@ -24,20 +24,20 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: 1.22
+          go-version: '1.22'
 
-      - name: Configure environment
+      - name: Configurar ambiente
         run: |
-          echo "GITHUB_TOKEN=${{ secrets.RELEASE_BOT_TOKEN }}" >> .env
-          echo "PACKAGE=${{ github.event.inputs.package }}" >> .env
+          echo "Rodando build para o pacote: ${{ github.event.inputs.package }}"
 
       - name: Run build
+        env:
+          PACKAGE: ${{ github.event.inputs.package }}
         run: |
-          echo "Rodando build para o pacote: $PACKAGE"
           go run ./cmd/main.go
 
       - name: Upload ZIP artifact
         uses: actions/upload-artifact@v4
         with:
-          name: release_${{ github.event.inputs.package }}
+          name: latest_releases_${{ github.event.inputs.package }}
           path: /tmp/latest_releases.zip
