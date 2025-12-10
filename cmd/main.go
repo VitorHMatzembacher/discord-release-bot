@@ -16,7 +16,7 @@ func main() {
 		log.Fatal("Variável PACKAGE não definida.")
 	}
 
-	reposFile := filepath.Join("repos", fmt.Sprintf("%s.json", pkg))
+	reposFile := filepath.Join("repositories", fmt.Sprintf("%s.json", pkg))
 	fileData, err := os.ReadFile(reposFile)
 	if err != nil {
 		log.Fatalf("Erro ao ler arquivo %s: %v", reposFile, err)
