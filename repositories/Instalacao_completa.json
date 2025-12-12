@@ -10,8 +10,7 @@
   "orbitspot/s4tax_document_service_sap_extension",
   "orbitspot/s4tax_nfse",
   "orbitspot/s4tax_nfse_sap_extension",
-  "orbitspot/s4tax_fiscal"
+  "orbitspot/s4tax_fiscal",
+  "orbitspot/s4tax_cte_sap_extension",
+  "orbitspot/s4tax_cte"
 ]
-
-
-

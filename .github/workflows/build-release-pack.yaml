@@ -33,6 +33,7 @@ jobs:
       - name: Run build
         env:
           PACKAGE: ${{ github.event.inputs.package }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           go run ./cmd/main.go
 

@@ -1,0 +1,9 @@
+[
+  "orbitspot/s4tax_core",
+  "orbitspot/s4tax_general_data_service",
+  "orbitspot/s4tax_model_business",
+  "orbitspot/s4tax_partner_portal",
+  "orbitspot/s4tax_reinf_communication",
+  "orbitspot/s4tax_dfe_service",
+  "orbitspot/s4tax_fiscal"
+]
